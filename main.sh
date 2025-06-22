@@ -221,7 +221,6 @@ services:
       - ${NODE_DIR}:/app/data
     depends_on:
       - typesense
-      **mem_limit: 512m**
   typesense:
     image: typesense/typesense:26.0
     container_name: typesense-${i}
