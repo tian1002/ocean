@@ -120,7 +120,6 @@ services:
     image: oceanprotocol/ocean-node:latest
     container_name: ocean-node-${i}
     restart: on-failure
-    mem_limit: 800m
     ports:
       - "${HTTP_PORT}:8000"
       - "${P2P_TCP_PORT}:9000"
@@ -222,10 +221,10 @@ services:
       - ${NODE_DIR}:/app/data
     depends_on:
       - typesense
+      **mem_limit: 512m**
   typesense:
     image: typesense/typesense:26.0
     container_name: typesense-${i}
-    mem_limit: 800m
     ports:
       - "${TYPESENSE_PORT}:8108"
     networks:
